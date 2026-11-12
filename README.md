@@ -8,7 +8,7 @@
 4. 저장소는 `STORAGE_DRIVER`로 선택
    - `supabase` (기본): Supabase 프로젝트 `mylink` — 테이블 `mylink_site`, `mylink_daily_stats`, 버킷 `mylink-media`. `SUPABASE_URL`, `SUPABASE_SECRET_KEY` 필요
    - `file`: 로컬 `data/` JSON (오프라인 개발용)
-5. Vercel 배포 시 위 환경변수를 Vercel 프로젝트에 그대로 넣으면 돼요
+5. 배포: GitHub `main`에 푸시하면 Vercel이 https://curly-lettuce.vercel.app 에 자동 배포해요 (다른 브랜치는 미리보기 배포). 환경변수는 Vercel 프로젝트에 설정돼 있어요
 6. 상품(쇼핑 쇼츠용): 편집 화면 `상품` 탭에서 등록 — 기획: `../plan/search-category-plan.md`
    - 공개 페이지에서 상품명·영상 번호(No.)·초성 검색, 카테고리 칩, 최신/인기 정렬. `/?q=27`, `/?c=<카테고리ID>` 딥링크
    - DB 변경 SQL은 `supabase/migrations/`에 있어요
