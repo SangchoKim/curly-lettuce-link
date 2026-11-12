@@ -1,36 +1,14 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# mylink
 
-## Getting Started
+인스타·틱톡 프로필용 개인 멀티링크 페이지. 기획: `../plan/multilink-plan.md`
 
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. `cp .env.example .env.local` 후 `ADMIN_PASSWORD`, `SESSION_SECRET` 입력 (Node 20+)
+2. `npm install && npm run dev`
+3. 공개 페이지 http://localhost:3000 · 편집 http://localhost:3000/admin
+4. 저장소는 `STORAGE_DRIVER`로 선택
+   - `supabase` (기본): Supabase 프로젝트 `mylink` — 테이블 `mylink_site`, `mylink_daily_stats`, 버킷 `mylink-media`. `SUPABASE_URL`, `SUPABASE_SECRET_KEY` 필요
+   - `file`: 로컬 `data/` JSON (오프라인 개발용)
+5. Vercel 배포 시 위 환경변수를 Vercel 프로젝트에 그대로 넣으면 돼요
+6. 상품(쇼핑 쇼츠용): 편집 화면 `상품` 탭에서 등록 — 기획: `../plan/search-category-plan.md`
+   - 공개 페이지에서 상품명·영상 번호(No.)·초성 검색, 카테고리 칩, 최신/인기 정렬. `/?q=27`, `/?c=<카테고리ID>` 딥링크
+   - DB 변경 SQL은 `supabase/migrations/`에 있어요
